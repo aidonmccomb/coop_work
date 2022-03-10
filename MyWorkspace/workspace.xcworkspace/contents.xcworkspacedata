@@ -2,6 +2,13 @@
 <Workspace
    version = "1.0">
    <Group
+      location = "group:Tutorials"
+      name = "Tutorials">
+      <FileRef
+         location = "group:placeHolder.playground">
+      </FileRef>
+   </Group>
+   <Group
       location = "group:1-Values"
       name = "1-Values">
       <Group
