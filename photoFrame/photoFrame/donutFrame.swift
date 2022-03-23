@@ -11,23 +11,30 @@ import SwiftUI
 struct SwiftUIView: View {
     var myMask: some View {
         Circle()
-            .frame(width:40, height:40)
+            .stroke(Color.black, lineWidth:70)
     }
     var myOverlay: some View {
         Circle()
             .fill(Color.red.opacity(0.5))
-            .frame(width:190, height:190)
             .mask(myMask)
+            .frame(width:190, height:190)
     }
     var body: some View {
-        Image("iu")
-            .resizable()
-            .aspectRatio(contentMode:.fit )
-            .border(Color.black, width: 16)
-            .padding(5)
-            .frame(width: 300)
-            .overlay(myOverlay)
-        
+        VStack {
+            GeometryReader  { iu in
+                Image("iu")
+                    .resizable()
+                    .aspectRatio(contentMode:.fit )
+                    .border(Color.black, width: 16)
+                    .padding(5)
+                    .frame(width: iu.size.width/3)
+                //.overlay(myOverlay)
+                Circle()
+                    .fill(Color.red.opacity(0.5))
+                    .mask(myMask)
+                    .frame(width:190, height:190)
+            }
+        }
     }
 }
 
